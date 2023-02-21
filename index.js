@@ -4,6 +4,9 @@ const { connect } = require('./src/utils/db/db');
 const logger = require('morgan');
 const products = require('./src/api/products/product.routes');
 const users = require('./src/api/users/user.routes');
+const sizes = require('./src/api/sizes/size.routes');
+const colours = require('./src/api/colours/colour.routes');
+const types = require('./src/api/types/type.routes');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 8080;
@@ -28,5 +31,8 @@ app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 
 app.use('/products', products);
 app.use('/users', users);
+app.use('/sizes', sizes);
+app.use('/colours', colours);
+app.use('/types', types);
 
 app.listen(PORT, () => console.log(`Server runing on port ${PORT}`));
